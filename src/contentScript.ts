@@ -126,7 +126,7 @@ const unFollow = async (
         followingButton.click();
         await confirmUnFollow();
       }
-      await waitFor(500);
+      await waitFor(2000 + Math.random() * 500);
     }
   }
 };
@@ -187,7 +187,7 @@ const abort = async () => {
 const startTimer = () => {
   storage.get(storage.timerKey).then((autoStop) => {
     if (autoStop) {
-      timerHandler = setTimeout(() => abort(), 1000 * 60); // 60secs
+      timerHandler = setTimeout(() => abort(), 1000 * 180); // 3 minutes
     }
   });
 };
